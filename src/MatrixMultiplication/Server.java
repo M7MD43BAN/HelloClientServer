@@ -10,7 +10,7 @@ public class Server {
     public static void main(String[] args) {
         ServerSocket serverSocket;
         Socket socket;
-        MatrixModel firstMatrix = null, secondMatrix = null, resultMatrix;
+        MatrixModel firstMatrix = null, secondMatrix, resultMatrix;
 
         boolean firstClientConnected = false;
 
@@ -23,7 +23,6 @@ public class Server {
                 System.out.println("Connection Established!");
 
                 ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
 
                 if (!firstClientConnected) {
                     firstMatrix = (MatrixModel) objectInputStream.readObject();
@@ -32,7 +31,7 @@ public class Server {
                     secondMatrix = (MatrixModel) objectInputStream.readObject();
                     resultMatrix = firstMatrix.multiply(secondMatrix);
 
-                    System.out.println("Resultant Matrix:");
+                    System.out.println("Result Matrix:");
                     for (int i = 0; i < resultMatrix.getRows(); i++) {
                         for (int j = 0; j < resultMatrix.getColumns(); j++) {
                             System.out.print(resultMatrix.getElement(i, j) + " ");
@@ -40,9 +39,7 @@ public class Server {
                         System.out.println();
                     }
 
-                    objectOutputStream.close();
                     socket.close();
-
                     firstClientConnected = false;
                 }
 
