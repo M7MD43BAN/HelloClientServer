@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class SecondClient {
     public static void main(String[] args) {
         Socket socket;
+        Scanner scanner;
         ObjectOutputStream objectOutputStream;
         int rows, columns;
         MatrixModel secondMatrix;
@@ -16,7 +17,7 @@ public class SecondClient {
             System.out.println("Second Client Started.");
             socket = new Socket(NetworkConstants.SERVER_IP, NetworkConstants.SERVER_PORT);
 
-            Scanner scanner = new Scanner(System.in);
+            scanner = new Scanner(System.in);
 
             System.out.println("Enter rows and columns of the Second Matrix");
             rows = scanner.nextInt();
