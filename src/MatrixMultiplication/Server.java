@@ -9,6 +9,7 @@ public class Server {
     public static void main(String[] args) {
         ServerSocket serverSocket;
         Socket socket;
+        ObjectInputStream objectInputStream;
         MatrixModel firstMatrix = null, secondMatrix, resultMatrix;
 
         boolean firstClientConnected = false;
@@ -21,7 +22,7 @@ public class Server {
                 socket = serverSocket.accept();
                 System.out.println("Connection Established!");
 
-                ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+                objectInputStream = new ObjectInputStream(socket.getInputStream());
 
                 if (!firstClientConnected) {
                     firstMatrix = (MatrixModel) objectInputStream.readObject();
