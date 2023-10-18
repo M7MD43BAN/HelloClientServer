@@ -30,13 +30,7 @@ public class Server {
                     secondMatrix = (MatrixModel) objectInputStream.readObject();
                     resultMatrix = firstMatrix.multiply(secondMatrix);
 
-                    System.out.println("Result Matrix:");
-                    for (int i = 0; i < resultMatrix.getRows(); i++) {
-                        for (int j = 0; j < resultMatrix.getColumns(); j++) {
-                            System.out.print(resultMatrix.getElement(i, j) + " ");
-                        }
-                        System.out.println();
-                    }
+                    resultMatrix.printMatrix();
 
                     socket.close();
                     firstClientConnected = false;

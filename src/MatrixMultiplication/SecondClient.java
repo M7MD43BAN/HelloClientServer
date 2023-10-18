@@ -19,8 +19,10 @@ public class SecondClient {
 
             scanner = new Scanner(System.in);
 
-            System.out.println("Enter rows and columns of the Second Matrix");
+            System.out.println("Enter size of the First Matrix...");
+            System.out.print("rows = ");
             rows = scanner.nextInt();
+            System.out.print("columns = ");
             columns = scanner.nextInt();
 
             secondMatrix = new MatrixModel(rows, columns);

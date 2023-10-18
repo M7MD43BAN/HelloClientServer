@@ -57,5 +57,14 @@ public class MatrixModel implements Serializable {
         }
         return result;
     }
-}
 
+    public void printMatrix() {
+        System.out.println("Result Matrix:");
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++) {
+                System.out.printf("%5d ", getElement(i, j));
+            }
+            System.out.println();
+        }
+    }
+}
