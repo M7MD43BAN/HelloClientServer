@@ -15,7 +15,7 @@ public class Server {
 
         try {
             System.out.println("Waiting for clients...");
-            serverSocket = new ServerSocket(6618);
+            serverSocket = new ServerSocket(NetworkConstants.SERVER_PORT);
 
             while (true) {
                 socket = serverSocket.accept();

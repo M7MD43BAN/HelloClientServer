@@ -14,7 +14,7 @@ public class SecondClient {
 
         try {
             System.out.println("Second Client Started.");
-            socket = new Socket("localhost", 6618);
+            socket = new Socket(NetworkConstants.SERVER_IP, NetworkConstants.SERVER_PORT);
 
             Scanner scanner = new Scanner(System.in);
 
